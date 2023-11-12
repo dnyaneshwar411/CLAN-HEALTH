@@ -1,0 +1,839 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+:root {
+  --color-secondary: #f34e3a;
+  --color-primary: #fff;
+  --color-accent: #e4e3e3;
+  --color-highlighter: #808080;
+  --color-accent-2: #b1b2b2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.25s;
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: var(--color-accent);
+  overflow-x: hidden;
+  font-weight: 300;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: var(--color-secondary);
+}
+
+button {
+  font-size: 16px;
+  color: var(--color-primary);
+  border: none;
+  background-color: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button .btn-content {
+  padding: 1rem;
+}
+
+.btn-primary {
+  gap: 1px;
+  align-items: stretch;
+}
+
+.btn-primary .btn-content,
+.btn-primary i {
+  height: 100%;
+}
+
+.btn-primary i {
+  width: 50px;
+  padding-top: 16px;
+}
+
+.btn-primary div {
+  background-color: var(--color-secondary);
+  margin: 0;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h5 {
+  font-size: 1.4rem;
+}
+
+
+h6 {
+  font-size: 1.2rem;
+}
+
+p {
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+ul li {
+  list-style: none;
+}
+
+i {
+  cursor: pointer;
+}
+
+input,
+textarea {
+  padding: 1rem;
+  width: 100%;
+  margin-block-end: 10px;
+  border: none;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.text-highlighter {
+  color: var(--color-secondary);
+}
+
+.container {
+  padding-inline: calc(calc(50% - 550px) / 2);
+}
+
+.active-link {
+  color: var(--color-secondary);
+}
+
+nav {
+  padding-block: 2.5rem;
+  font-weight: 700;
+  align-items: center;
+}
+
+nav>.fa-bars {
+  margin-left: auto;
+  display: none;
+}
+
+nav ul {
+  gap: 2rem;
+  margin-left: auto;
+  align-items: center;
+}
+
+nav .fa-bars {
+  text-align: center;
+  color: var(--color-primary);
+  background-color: #000;
+  line-height: 38px;
+  width: 38px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+
+nav .fa-bars:hover {
+  background-color: var(--color-secondary);
+}
+
+.sidebar-toggle {
+  display: block !important;
+  right: 0 !important;
+}
+
+.sidebar-wrapper {
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.25);
+  display: none;
+  z-index: 11;
+}
+
+#sidebar {
+  color: var(--color-accent-2);
+  background-color: var(--color-primary);
+  position: fixed;
+  top: 0;
+  right: 0;
+  max-width: 450px;
+  height: 100vh;
+  padding: 60px;
+  right: -450px;
+  transition: all 5s !important;
+}
+
+#sidebar h2 {
+  color: #000;
+}
+
+#sidebar p {
+  margin-block: 3rem;
+}
+
+#sidebar .fa-xmark {
+  color: var(--color-secondary);
+  position: absolute;
+  right: 3rem;
+}
+
+.contact li {
+  font-size: 14px;
+  margin-block: 15px;
+  cursor: pointer;
+}
+
+.contact li i {
+  width: 30px;
+}
+
+.contact li:hover {
+  color: var(--color-secondary);
+}
+
+#sidebar hr {
+  margin-block: 6rem 4rem;
+  opacity: 0.10;
+}
+
+#sidebar .socials i {
+  font-size: 20px;
+  margin-right: 2rem;
+  margin-top: 1rem;
+}
+
+#hero {
+  background-color: var(--color-primary);
+  height: 85vh;
+  position: relative;
+  overflow: hidden;
+}
+
+#hero .hero-background {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#hero .hero-person {
+  height: 140%;
+  position: absolute;
+  right: 6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+}
+
+#hero .hero-content {
+  width: 60ch;
+  transform: translateY(60%);
+  margin-left: calc(calc(50% - 550px) / 2);
+  position: relative;
+  z-index: 5;
+}
+
+#hero .yearImg {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+#hero .hero-content h1 {
+  letter-spacing: 2px;
+  font-size: 80px;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.service {
+  background-color: #000;
+  background-size: cover;
+  color: var(--color-primary);
+  width: calc(100% / 3);
+  height: 60vh;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.service:hover {
+  background-image: none !important;
+}
+
+.service:hover a,
+.service:hover p {
+  display: block;
+}
+
+.service a,
+.service p {
+  display: none;
+}
+
+.service a {
+  color: var(--color-secondary);
+}
+
+.service a:hover {
+  color: var(--color-primary);
+}
+
+.service a i {
+  font-size: 16px;
+}
+
+.service h3 {
+  font-size: 2rem;
+  margin-block: 2rem;
+}
+
+.service p {
+  max-width: 30ch;
+  margin: 0 auto 2rem;
+}
+
+.service>i {
+  font-size: 3rem;
+}
+
+#trainers .wrapper,
+#benefits .wrapper,
+#fitness-goals .wrapper,
+#trainings .wrapper {
+  text-align: center;
+  padding-block: 7rem;
+}
+
+#benefits p,
+#fitness-goals .wrapper p,
+#trainings .wrapper p {
+  color: var(--color-highlighter);
+  font-size: 18px;
+  margin-top: 1rem;
+  max-width: 70ch;
+  margin-inline: auto;
+}
+
+#trainers .wrapper {
+  justify-content: space-between;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-inline: calc(calc(50% - 550px) / 2);
+}
+
+#trainers h2 {
+  position: relative;
+  max-width: 20ch;
+  text-align: left;
+}
+
+#trainers h2::before {
+  content: '03';
+  font-size: 8rem;
+  position: absolute;
+  color: var(--color-accent-2);
+  z-index: -1;
+  top: -80%;
+  opacity: 65%;
+  left: 0;
+}
+
+.trainer-container {
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.trainer {
+  width: calc(calc(100% - 6rem) / 4);
+  position: relative;
+  overflow: hidden;
+}
+
+.trainer img {
+  width: 100%;
+  aspect-ratio: 1/1 !important;
+  object-fit: cover;
+}
+
+.trainer:hover .trainer-content {
+  opacity: 1;
+}
+
+.trainer:hover .trainer-tag {
+  right: -100%;
+}
+
+.trainer-content {
+  color: var(--color-primary);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 100%;
+  text-align: center;
+  padding-top: 8rem;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  opacity: 0;
+}
+
+.trainer-tag {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  padding: 10px;
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  transform: rotateZ(-90deg) translate(30%, -50%);
+  transform-origin: 100%;
+}
+
+.trainer-content i {
+  font-size: 1.5rem;
+  margin-inline: 8px;
+}
+
+.trainer-content i:hover {
+  color: var(--color-secondary);
+}
+
+.trainer-content span {
+  display: block;
+  margin-block: 15px;
+}
+
+.training-container {
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.trainings {
+  width: 50%;
+  overflow: hidden;
+}
+
+.trainings img {
+  width: 50%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.trainings img:hover {
+  transform: scale(1.1);
+}
+
+.trainings div {
+  color: white;
+  background-color: #29282d;
+  width: 50%;
+  padding: 7rem 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.trainings a:hover {
+  color: white;
+}
+
+.trainings h4 {
+  font-size: 1.6rem;
+  margin-block: 16px;
+}
+
+.trainings p {
+  margin-bottom: 20px;
+}
+
+#fitness-goals {
+  background-color: var(--color-primary);
+  padding-bottom: 6rem;
+}
+
+#fitness-goals .flex {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#fitness-goals .goal {
+  text-align: center;
+  padding: 2rem;
+  width: calc(90% / 4);
+}
+
+#fitness-goals .goal i {
+  font-size: 2.5rem;
+}
+
+#fitness-goals .goal h5 {
+  margin-block: 20px;
+}
+
+#fitness-goals p {
+  color: var(--color-highlighter);
+}
+
+#benefits {
+  padding-bottom: 6rem;
+}
+
+.benefit-container {
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+#benefits .wrapper {
+  position: relative;
+}
+
+.benefit-container img {
+  width: 200px;
+  aspect-ratio: 1/1;
+  border: 10px solid var(--color-primary);
+  border-radius: 50%;
+  outline: 1px dashed var(--color-highlighter);
+  margin-bottom: 2rem;
+}
+
+.benefit-container img:hover {
+  scale: 1.1;
+}
+
+.benefit-container .enlarge-image {
+  width: 270px;
+}
+
+#benefits .wrapper hr {
+  position: absolute;
+  border-color: white;
+}
+
+#brands-carousel {
+  padding-block: 4rem;
+  background-color: var(--color-secondary);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6rem 2rem;
+}
+
+#brands-carousel img {
+  width: calc(calc(100% - 8rem) / 5);
+  min-width: 15rem;
+}
+
+#testimonial {
+  color: var(--color-primary);
+  height: 90vh;
+  background-image: url('https://prowess.qodeinteractive.com/wp-content/uploads/2018/02/h1-parallax-img-1.jpg');
+  background-attachment: fixed;
+  position: relative;
+}
+
+#testimonial p {
+  max-width: 50ch;
+  width: 80%;
+  margin-inline: auto;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+#testimonial .fa-solid {
+  position: absolute;
+  font-size: 3rem;
+  top: 50%;
+  z-index: 5;
+}
+
+#testimonial .fa-chevron-left {
+  left: 5%;
+}
+
+#testimonial .fa-chevron-right {
+  right: 5%;
+}
+
+#testimonial p::before {
+  content: open-quote;
+  position: absolute;
+  top: -50%;
+  left: 40%;
+  font-size: 5rem;
+}
+
+#testimonial .flex {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+footer {
+  color: #808080;
+  background-color: #29282d;
+  padding: 5rem calc(calc(50% - 550px) / 2);
+}
+
+footer h3 {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+footer h4 {
+  margin-bottom: 5px;
+}
+
+footer .latest-news ul li {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-highlighter);
+}
+
+footer .latest-news ul li:last-child {
+  border-bottom: none;
+}
+
+footer>.flex {
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+footer>.flex>div {
+  width: calc(calc(100% - 4rem) / 3);
+}
+
+footer input,
+footer textarea {
+  color: var(--color-highlighter);
+  background-color: #212121;
+}
+
+footer input::placeholder,
+footer textarea::placeholder {
+  color: var(--color-highlighter);
+}
+
+#footer-bottom .flex {
+  color: var(--color-accent-2);
+  padding: 2.5rem calc(calc(50% - 550px) / 2);
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #212121;
+}
+
+#footer-bottom .flex i {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  margin-inline: 5px;
+}
+
+#footer-bottom .flex i:hover {
+  color: var(--color-secondary);
+}
+
+@media (max-width: 680px) {
+  .trainings {
+    flex-wrap: wrap;
+  }
+
+  .trainings {
+    flex-direction: row;
+  }
+
+  .trainings div,
+  .trainings img {
+    width: 100%;
+  }
+
+  #fitness-goals .goal {
+    width: 100%;
+  }
+
+  .trainer {
+    width: 100%;
+  }
+
+  #testimonial p {
+    font-size: 1rem;
+  }
+
+  #testimonial p::before {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 750px) {
+  #hero .hero-content {
+    width: 100%;
+  }
+
+  #benefits .flex .benefit {
+    width: 100%;
+  }
+
+  footer>.flex>div {
+    width: 100%;
+  }
+}
+
+@media (max-width: 990px) {
+  nav h2 {
+    font-size: 1.8rem;
+  }
+
+  #hero .hero-content h1 {
+    font-size: 48px;
+  }
+
+  #hero .hero-content {
+    max-width: 98%;
+    margin-left: 0 !important;
+    padding-inline: 10px;
+  }
+
+  #hero .hero-person {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    height: 40vh !important;
+    object-fit: contain;
+    z-index: 4;
+  }
+
+  #hero .hero-content {
+    width: 60ch;
+    transform: translateY(60%);
+    margin-left: calc(calc(50% - 550px) / 2);
+    position: relative;
+    z-index: 5;
+  }
+
+  #services {
+    flex-direction: column;
+  }
+
+  .service {
+    width: calc(100%) !important;
+  }
+
+  #testimonial {
+    height: 60vh;
+  }
+}
+
+@media (min-width:680px) and (max-width: 1024px) {
+  #fitness-goals .goal {
+    width: 50%;
+  }
+
+  .trainer {
+    width: calc(50% - 1rem);
+  }
+
+  #testimonial p {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  nav .flex {
+    color: var(--color-primary);
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: #212121;
+    top: -100vh;
+    left: 0;
+    flex-direction: column;
+    z-index: 10;
+    justify-content: center;
+  }
+
+  .nav-toggle {
+    top: 0 !important;
+  }
+
+  nav>.fa-bars {
+    display: block;
+    z-index: 10;
+  }
+
+  .trainings {
+    width: 100%;
+  }
+
+  #testimonial .fa-solid {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 750px) and (max-width: 1200px) {
+  #benefits .flex {
+    width: 730px;
+    margin-inline: auto;
+    gap: 5rem 2rem;
+  }
+
+  #benefits .flex .benefit {
+    width: calc(50% - 1rem);
+  }
+
+  footer>.flex>div {
+    width: calc(50% - 2rem);
+  }
+}
+
+@media (max-width: 1200px) {
+
+  .container,
+  #trainers .wrapper,
+  footer,
+  #footer-bottom .flex {
+    padding-inline: 1rem;
+  }
+
+  #hero .hero-content {
+    margin-left: 1rem;
+  }
+
+  #hero .hero-person {
+    right: 0;
+    height: 90%;
+  }
+}
