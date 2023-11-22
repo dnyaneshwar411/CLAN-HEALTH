@@ -8,21 +8,25 @@ import Trainer from './Trainer';
 export default function Trainers() {
     const trainers = [
         {
+            id: 1,
             name: 'BRUCE BAILEY',
             designation: 'CROSSFIT EXPERT',
             image: trainer1
         },
         {
+            id: 2,
             name: 'BRUCE BAILEY',
             designation: 'CROSSFIT EXPERT',
             image: trainer2
         },
         {
+            id: 3,
             name: 'BRUCE BAILEY',
             designation: 'CROSSFIT EXPERT',
             image: trainer3
         },
         {
+            id: 4,
             name: 'BRUCE BAILEY',
             designation: 'CROSSFIT EXPERT',
             image: trainer4
@@ -32,12 +36,12 @@ export default function Trainers() {
         <div id="trainers">
             <div className="wrapper flex">
                 <h2>MEET OUR STRONGEST TEAM</h2>
-                <button className="btn-primary flex">
+                {/* <button className="btn-primary flex">
                     <div className="btn-content">READ MORE</div><div><i className="fa-solid fa-arrow-right"></i></div>
-                </button>
+                </button> */}
             </div>
             <div className="trainer-container flex">
-                {trainers.map(trainer => (<Trainer trainer={trainer} />))}
+                {trainers.map(trainer => (<Trainer trainer={trainer} key={trainer.id} />))}
             </div>
         </div>
     );

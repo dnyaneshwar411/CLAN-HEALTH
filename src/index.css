@@ -6,6 +6,7 @@
   --color-accent: #e4e3e3;
   --color-highlighter: #808080;
   --color-accent-2: #b1b2b2;
+  --padding-inline: calc(calc(50% - 550px) / 2);
 }
 
 * {
@@ -21,6 +22,23 @@ body {
   background-color: var(--color-accent);
   overflow-x: hidden;
   font-weight: 300;
+}
+
+.top-button {
+  position: fixed;
+  color: var(--color-primary);
+  width: 50px;
+  aspect-ratio: 1/1;
+  text-align: center;
+  line-height: 50px;
+  background-color: var(--color-secondary);
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 10;
+}
+
+.top-button:hover {
+  transform: scale(1.1);
 }
 
 a {
@@ -97,11 +115,16 @@ i {
 }
 
 input,
-textarea {
+textarea,
+select {
   padding: 1rem;
   width: 100%;
   margin-block-end: 10px;
   border: none;
+}
+
+select {
+  background-color: white;
 }
 
 input:focus,
@@ -111,6 +134,10 @@ textarea:focus {
 
 .flex {
   display: flex;
+}
+
+.d-none {
+  display: none;
 }
 
 .text-highlighter {
@@ -242,7 +269,7 @@ nav .fa-bars:hover {
   height: 140%;
   position: absolute;
   right: 6rem;
-  top: 50%;
+  top: 0%;
   transform: translateY(-50%);
   z-index: 4;
 }
@@ -281,6 +308,13 @@ nav .fa-bars:hover {
   text-align: center;
   cursor: pointer;
   transition: all 0.25s;
+}
+
+.service img {
+  width: 80px;
+  display: block;
+  margin-inline: auto;
+  aspect-ratio: 1/1;
 }
 
 .service:hover {
@@ -544,13 +578,69 @@ nav .fa-bars:hover {
   background-color: var(--color-secondary);
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
   gap: 6rem 2rem;
+  overflow-x: auto;
+  /* width: calc(calc(15rem * 5) + 8rem); */
 }
 
 #brands-carousel img {
   width: calc(calc(100% - 8rem) / 5);
   min-width: 15rem;
+}
+
+#brands-carousel::-webkit-scrollbar {
+  height: 6px;
+}
+
+#brands-carousel::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+#brands-carousel::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent-2);
+  outline: 1px solid slategrey;
+}
+
+#gallery {
+  margin-block: 6rem;
+  text-align: center;
+}
+
+#gallery .filter-buttons {
+  margin-block: 3rem 2rem;
+
+}
+
+#gallery button {
+  background-color: var(--color-highlighter);
+  margin: 5px 10px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+#gallery button:hover {
+  color: #000;
+  background-color: var(--color-accent-2);
+}
+
+#gallery .btn-active {
+  background-color: var(--color-secondary) !important;
+}
+
+#gallery img {
+  width: calc(calc(100% - 4rem) / 3);
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: center top;
+}
+
+#gallery img[data-display="false"] {
+  display: none;
+}
+
+#gallery .images {
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 #testimonial {
@@ -600,6 +690,79 @@ nav .fa-bars:hover {
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+
+#bmi-calculator {
+  padding: 7rem var(--padding-inline);
+  position: relative;
+}
+
+#bmi-calculator .results {
+  position: absolute;
+  background-color: var(--color-primary);
+  width: 95%;
+  left: 50%;
+  bottom: 0%;
+  padding: 1.5rem 1rem;
+  transform: translate(-50%, -50%);
+  max-width: 1200px;
+  justify-content: space-between;
+}
+
+#bmi-calculator>div {
+  width: 50%;
+  gap: 2rem;
+}
+
+#bmi-calculator table {
+  padding-inline: 3rem;
+}
+
+#bmi-calculator table {
+  margin-block: 32px;
+  width: 100%;
+}
+
+#bmi-calculator thead {
+  font-weight: bold;
+}
+
+#bmi-calculator tr td:first-child {
+  width: 14rem;
+  border-right: 2px dashed var(--color-accent-2);
+}
+
+#bmi-calculator tr td:last-child {
+  width: calc(100% - 10rem);
+}
+
+#bmi-calculator td {
+  padding: 20px;
+  border-bottom: 2px dashed var(--color-accent-2);
+}
+
+#bmi-calculator tr:last-child {
+  border-bottom: none;
+}
+
+#bmi-calculator p {
+  margin-block: 2rem;
+  color: var(--color-highlighter);
+}
+
+#bmi-calculator input,
+#bmi-calculator #sex {
+  width: 49%;
+}
+
+#bmi-calculator input:nth-child(odd) {
+  margin-right: 2%;
+}
+
+#bmi-calculator button {
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 1rem;
 }
 
 footer {
@@ -667,6 +830,105 @@ footer textarea::placeholder {
   color: var(--color-secondary);
 }
 
+#timetable {
+  text-align: center;
+  color: var(--color-primary);
+  background-color: #29282e;
+  padding: 6rem var(--padding-inline);
+  position: relative;
+}
+
+#timetable::before {
+  position: absolute;
+  content: 'time';
+  color: #b1b2b2;
+  font-weight: bold;
+  font-size: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.25;
+}
+
+#timetable .timetable-content {
+  z-index: 5;
+  position: relative;
+}
+
+#timetable .program-container {
+  margin-top: 2rem;
+  gap: 1rem;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+#timetable .program-container>div {
+  padding: 1rem;
+  min-width: 20px;
+}
+
+#timetable .program-container>div:hover {
+  background-color: var(--color-secondary);
+}
+
+#timetable table {
+  width: 100%;
+  background-color: #302f34;
+  margin-block: 2rem;
+}
+
+#timetable td {
+  padding: 2rem;
+  width: calc(100% / 8);
+}
+
+.about-wrapper {
+  align-items: center;
+  justify-content: center;
+  padding-inline: 4rem;
+  background-color: rgba(0, 0, 0, 0.85);
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.about-wrapper .fa-xmark {
+  font-size: 2rem;
+  color: var(--color-secondary);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#about {
+  background-color: var(--color-accent);
+  align-items: start;
+  justify-content: center;
+  padding: 3rem;
+}
+
+#about h2,
+#about p {
+  margin-block-end: 1rem;
+}
+
+#about>div {
+  width: 50%;
+}
+
+#about img {
+  object-fit: cover;
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
+#about .about-content {
+  padding-left: 3rem;
+  position: relative;
+}
+
 @media (max-width: 680px) {
   .trainings {
     flex-wrap: wrap;
@@ -696,6 +958,18 @@ footer textarea::placeholder {
   #testimonial p::before {
     font-size: 2rem;
   }
+
+  .about-wrapper {
+    padding-inline: 10px;
+  }
+
+  #gallery img {
+    width: 100%;
+  }
+
+  #hero .hero-content h1 {
+    font-size: 58px;
+  }
 }
 
 @media (max-width: 750px) {
@@ -712,28 +986,31 @@ footer textarea::placeholder {
   }
 }
 
+@media (max-width: 900px) {
+  #hero .hero-person {
+    max-width: 100%;
+    right: 0;
+    object-fit: cover;
+  }
+
+  #hero .hero-content h1 {
+    transform: translateY(100%);
+  }
+}
+
 @media (max-width: 990px) {
   nav h2 {
     font-size: 1.8rem;
   }
 
   #hero .hero-content h1 {
-    font-size: 48px;
+    transform: translateY(80%);
   }
 
   #hero .hero-content {
     max-width: 98%;
     margin-left: 0 !important;
     padding-inline: 10px;
-  }
-
-  #hero .hero-person {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1/1;
-    height: 40vh !important;
-    object-fit: contain;
-    z-index: 4;
   }
 
   #hero .hero-content {
@@ -769,6 +1046,10 @@ footer textarea::placeholder {
   #testimonial p {
     font-size: 1.5rem;
   }
+
+  #gallery img {
+    width: calc(calc(100% - 2rem) / 2);
+  }
 }
 
 @media (max-width: 1024px) {
@@ -801,6 +1082,15 @@ footer textarea::placeholder {
   #testimonial .fa-solid {
     font-size: 2rem;
   }
+
+  #bmi-calculator {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  #bmi-calculator>div {
+    width: 100%;
+  }
 }
 
 @media (min-width: 750px) and (max-width: 1200px) {
@@ -819,7 +1109,18 @@ footer textarea::placeholder {
   }
 }
 
+@media (max-width: 1200px)and (min-width:900px) {
+  #hero .hero-person {
+    width: 800px;
+    object-fit: cover;
+    right: 0;
+  }
+}
+
 @media (max-width: 1200px) {
+  :root {
+    --padding-inline: 1rem;
+  }
 
   .container,
   #trainers .wrapper,
@@ -831,9 +1132,25 @@ footer textarea::placeholder {
   #hero .hero-content {
     margin-left: 1rem;
   }
+}
 
-  #hero .hero-person {
-    right: 0;
-    height: 90%;
+@media (max-width: 1300px) {
+  #about {
+    display: block;
+    /* flex-direction: column; */
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  #about>div:first-child {
+    display: none;
+  }
+
+  #about>div {
+    width: 100%;
+  }
+
+  #about .about-content {
+    padding-left: 0;
   }
 }

@@ -9,7 +9,7 @@ export default function Program({ program }) {
                 <span className={program.backgroundColor === '#f34e3a' ? null : 'text-highlighter'}>{program.heading}</span>
                 <h4>{program.programName}</h4>
                 <p>Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus maecenas</p>
-                <a href="/">Read More <i className="fa-solid fa-arrow-right"></i></a>
+                {/* <a href="/">Read More <i className="fa-solid fa-arrow-right"></i></a> */}
             </div>
         </div>
     );

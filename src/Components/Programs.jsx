@@ -42,7 +42,7 @@ export default function Programs() {
     ];
     return (
         <div className="training-container flex">
-            {programs.map((program) => (<Program program={program} />))}
+            {programs.map((program) => (<Program program={program} key={program.programName} />))}
             {/* <div className="trainings flex">
                 <img src={program1} alt="" />
                 <div>
