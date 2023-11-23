@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import heroBackground from '/assets/header-background-image.png';
 import personImg from '/assets/header-person.png';
@@ -48,11 +48,13 @@ import infrastructure3 from '/assets/gallery/infrastructure3.jpeg';
 import infrastructure4 from '/assets/gallery/infrastructure4.jpeg';
 import infrastructure5 from '/assets/gallery/infrastructure5.jpeg';
 import infrastructure6 from '/assets/gallery/infrastructure6.jpeg';
+import favIcon from '/assets/icons/favIcon.png';
 
 function App() {
   const galleryImages = [{ image: trainer1, category: 'trainer' }, { image: trainer2, category: 'trainer' }, { image: trainer3, category: 'trainer' }, { image: trainer4, category: 'trainer' }, { image: trainer5, category: 'trainer' }, { image: trainer6, category: 'trainer' }, { image: trainer7, category: 'trainer' }, { image: trainer8, category: 'trainer' }, { image: peopletraining1, category: 'peopleTraining' }, { image: peopletraining2, category: 'peopleTraining' }, { image: peopletraining3, category: 'peopleTraining' }, { image: peopletraining4, category: 'peopleTraining' }, { image: peopletraining5, category: 'peopleTraining' }, { image: peopletraining6, category: 'peopleTraining' }, { image: peopletraining7, category: 'peopleTraining' }, { image: peopletraining8, category: 'peopleTraining' }, { image: infrastructure1, category: 'infrastructure' }, { image: infrastructure2, category: 'infrastructure' }, { image: infrastructure3, category: 'infrastructure' }, { image: infrastructure4, category: 'infrastructure' }, { image: infrastructure5, category: 'infrastructure' }, { image: infrastructure6, category: 'infrastructure' }];
   const [sidebarActive, setSidebarActive] = useState(false);
   const [about, setAbout] = useState(false);
+  const [navBar, setNavBar] = useState(false);
   const navLinks = useRef();
   // const events = [
   //   {
@@ -123,7 +125,6 @@ function App() {
       index >= 6 ? image.style.display = 'none' : null;
     });
   }
-
   const imageFilter = function (e, filterValue) {
     const images = document.querySelectorAll('#gallery img');
     document.querySelector('.btn-active').classList.remove('btn-active')
@@ -139,15 +140,25 @@ function App() {
     });
     noOfImages();
   }
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > '100') {
+        setNavBar(true)
+      } else {
+        setNavBar(false)
+      }
+      window.scrollY > '100' ? setNavBar(true) : setNavBar(false);
+    });
+  }, []);
   return (
     <>
       <div className="top-button" onClick={() => window.scrollTo(0, 0)}>
         <i className="fa-solid fa-arrow-up"></i>
       </div >
       <header>
-        <div className="container">
-          <nav className='flex'>
-            <div className="branding"><h2>CLAN HEALTH</h2></div>
+        <div className="container" style={navBar ? { paddingTop: '100px' } : null}>
+          <nav className={`flex ${navBar ? 'sticky-nav' : null}`}>
+            <div className="branding flex"><img src={favIcon} /><h2>CLAN HEALTH</h2></div>
             <ul className='flex' ref={navLinks}>
               <li onClick={() => { setAbout(true) }}><NavLink to='#trainers'>ABOUT</NavLink></li>
               <li><a href='#contact-form'>CONTACT</a></li>
@@ -183,7 +194,7 @@ function App() {
               <div className="btn-content">READ MORE</div><div><i className="fa-solid fa-arrow-right"></i></div></button> */}
           </div>
           <img src={heroBackground} alt="" className='hero-background' />
-          <img src={personImg} alt="" className='animate__animated animate__wobble hero-person' />
+          <img src={personImg} style={{ animationDuration: '1200ms', animationDelay: '300ms' }} className='animate__animated animate__wobble hero-person' />
           <img src={yearImg} alt="" className="yearImg" />
         </div >
       </header >
@@ -442,22 +453,24 @@ function App() {
           </div>
         </div>
       </div>
-      {about && <div className="about-wrapper flex">
-        <div id="about" className='flex'>
-          <div><img src={aboutUs} alt="" /></div>
-          <div className="about-content">
-            <i className="fa-solid fa-xmark" onClick={() => { setAbout(false) }}></i>
-            <h2>ABOUT US</h2>
-            <p>Welcome to CLAN, your all-in-one fitness destination where we believe in a holistic approach to wellness not only for you but also for your whole family. Our state-of-the-art facility is designed to cater to all your fitness needs, whether you're looking to build muscle, improve cardiovascular health, or find your zen through yoga.</p>
+      {
+        about && <div className="about-wrapper flex">
+          <div id="about" className='flex'>
+            <div><img src={aboutUs} alt="" /></div>
+            <div className="about-content">
+              <i className="fa-solid fa-xmark" onClick={() => { setAbout(false) }}></i>
+              <h2>ABOUT US</h2>
+              <p>Welcome to CLAN, your all-in-one fitness destination where we believe in a holistic approach to wellness not only for you but also for your whole family. Our state-of-the-art facility is designed to cater to all your fitness needs, whether you're looking to build muscle, improve cardiovascular health, or find your zen through yoga.</p>
 
-            <p>Our team of experienced trainers and coaches are here to guide you every step of the way, helping you achieve your fitness goals with personalized training plans and expert advice.</p>
+              <p>Our team of experienced trainers and coaches are here to guide you every step of the way, helping you achieve your fitness goals with personalized training plans and expert advice.</p>
 
-            <p>At CLAN, we understand that fitness is more than just exercise. That's why we offer a range of additional services, including baby care, snooker, chess, and a healthy café to make your family time with us as enjoyable and stress-free as possible. We want to create a community of health and wellness that extends beyond just the gym, so you can feel supported and motivated every step of the way.</p>
+              <p>At CLAN, we understand that fitness is more than just exercise. That's why we offer a range of additional services, including baby care, snooker, chess, and a healthy café to make your family time with us as enjoyable and stress-free as possible. We want to create a community of health and wellness that extends beyond just the gym, so you can feel supported and motivated every step of the way.</p>
 
-            <p>Come experience the CLAN difference and start your journey to a healthier, happier you.</p>
+              <p>Come experience the CLAN difference and start your journey to a healthier, happier you.</p>
+            </div>
           </div>
         </div>
-      </div>}
+      }
     </>
   )
 }

@@ -21,6 +21,7 @@ body {
   font-family: 'Ubuntu', sans-serif;
   background-color: var(--color-accent);
   overflow-x: hidden;
+  position: relative;
   font-weight: 300;
 }
 
@@ -153,9 +154,32 @@ textarea:focus {
 }
 
 nav {
-  padding-block: 2.5rem;
+  padding-block: 2rem;
   font-weight: 700;
   align-items: center;
+  z-index: 7;
+}
+
+.sticky-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding-inline: calc(calc(50% - 550px) / 2);
+  background-color: var(--color-accent);
+}
+
+nav .branding {
+  gap: 10px;
+  align-items: center;
+}
+
+nav .branding h2 {
+  font-size: 22px;
+}
+
+nav .branding img {
+  width: 50px;
 }
 
 nav>.fa-bars {
