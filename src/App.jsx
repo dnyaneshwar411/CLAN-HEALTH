@@ -162,7 +162,7 @@ function App() {
             <ul className='flex' ref={navLinks}>
               <li onClick={() => { setAbout(true) }}><NavLink to='#trainers'>ABOUT</NavLink></li>
               <li><a href='#contact-form'>CONTACT</a></li>
-              <li><a href='#'>GALLERY</a></li>
+              <li><a href='#gallery'>GALLERY</a></li>
               <li onClick={() => setSidebarActive(true)}><a href="#"><i className="fa-solid fa-bars"></i></a></li>
             </ul>
             <i className="fa-solid fa-bars" onClick={navToggle}></i>

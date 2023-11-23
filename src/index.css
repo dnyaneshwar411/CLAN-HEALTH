@@ -164,9 +164,10 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   padding-inline: calc(calc(50% - 550px) / 2);
   background-color: var(--color-accent);
+  box-shadow: 0 2px 8px var(--color-highlighter);
 }
 
 nav .branding {
@@ -1077,7 +1078,7 @@ footer textarea::placeholder {
 }
 
 @media (max-width: 1024px) {
-  nav .flex {
+  nav ul {
     color: var(--color-primary);
     position: fixed;
     height: 100vh;
